@@ -170,6 +170,7 @@ Each cluster that will be connected must have Submariner installed within it. Yo
 1. Label your gateway nodes with the annotation `submariner.io/gateway=true`
 
    ```
+#NOAM
    kubectl label node <DESIRED_NODE> "submariner.io/gateway=true"
    ```
 

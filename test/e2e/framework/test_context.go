@@ -2,10 +2,10 @@ package framework
 
 import (
 	"flag"
+	"k8s.io/klog"
 	"os"
 	"strings"
-
-	"k8s.io/klog"
+	"testing"
 )
 
 type contextArray []string
@@ -58,6 +58,7 @@ func validateFlags(t *TestContextType) {
 
 func ParseFlags() {
 	registerFlags(TestContext)
+	testing.Init() // Since Go 1.13, testing.Init() is required to register testing flags before calling flag.Parse()
 	flag.Parse()
 	validateFlags(TestContext)
 }
